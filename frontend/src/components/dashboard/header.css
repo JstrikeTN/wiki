@@ -1,0 +1,21 @@
+#header{
+    display: flex;
+    background-color: blue;
+    height: 50px;
+}
+
+#logo{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(170, 170, 170);
+    margin: 2px;
+}
+
+#headerText{
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 30;
+    margin: 0;
+    margin-top: 5px ;
+}

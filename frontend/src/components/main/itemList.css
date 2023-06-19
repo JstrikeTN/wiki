@@ -1,0 +1,32 @@
+#body{
+    display: flex;
+    flex-direction: row;
+    justify-content:unsafe;
+    height: 70%;
+    flex-grow: 30;
+}
+
+#sidebar{
+    position: static;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, green, rgb(170, 170, 170));
+    width: 140px;
+    bottom: inherit;
+    border: 1px solid black;
+    border-bottom: none;
+    border-left: none;
+    flex-grow: 0.1;
+}
+
+#sidebar button{
+    height: 30px;
+    background-color: rgba(175, 175, 175, 0);
+    border: 1px solid rgb(170,170,170);
+} #sidebar button:hover {
+    background-color: rgb(170,170,170); 
+}
+
+#space{
+    width: 60px;
+}

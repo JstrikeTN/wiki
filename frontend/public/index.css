@@ -1,0 +1,8 @@
+html, #root {
+    height: 100%;
+}
+
+html{
+    background-image: url(./images/15410.jpg);
+    background-attachment: fixed;
+}

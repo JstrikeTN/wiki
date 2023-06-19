@@ -1,0 +1,109 @@
+.postPage, .loginPage{
+    background-color: rgb(28, 105, 170);
+    border: solid 2px rgb(0, 0, 70);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    top: 200px;
+    width: 600px;
+    height: 350px;
+}.postPage .controls, .loginPage .controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}.postPage button, .loginPage button{
+        margin: 1px 5px 0 0;
+}.postPage h2, .loginPage h2{
+    margin: 0 0 20px 0;
+    background-color: rgb(0,0, 180);
+    color: white
+}.postPage label{
+    color: white;
+    background-color: rgb(0,0, 180);
+    text-align: center;
+}.postPage .inputArticle{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px 0 5px;
+    border: solid 1px white;
+}.postPage input, .postPage textarea, .loginPage input{
+    background-color: rgb(0,0, 160);
+    color: white;
+}.postPage textarea{
+    height: 207px;
+    width: auto;
+}
+
+.loginPage .loginInput{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px white;
+}.loginPage div{
+    
+}
+
+.dashboard{
+    width: 50%;
+    background-color: white;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:rgba(28, 105, 170, 0.900);
+    color: rgb(255, 255, 255);
+    border: solid 1px white;
+} .dashboard div {
+    border: solid 1px;
+}.dashboard p{
+    margin: 25px;
+}html button{
+    border: solid 1px rgb(0,0, 180);
+    border-bottom: 0;
+    background-color: rgb(0,0, 160);
+    color: white;
+}html button:hover{
+    background-color: rgb(0, 0, 70);
+}.dashboard #authorName{
+    border: solid 1px rgb(0,0, 140);
+    background-color: rgba(0, 0, 180, .4);
+}.dashboard .searchContainer input {
+    width: -webkit-fill-available;
+    background-color: rgba(0, 0, 160, .6);
+    color: white;
+}
+
+h2{
+    text-align: center;
+}
+
+.logedOutContainer, .logedInContainer {
+    border: solid 1px white;
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+}.logedOutContainer{
+    flex-direction: row;
+    width: 141px;
+    margin: 14px 7px 0px 2px;
+    padding: 3px;
+}.logedInContainer{
+    flex-direction: column;
+    width: 186px;
+    margin: 4px 12px 0px 0px;
+}.logedInContainer p{
+    margin: 0;
+    border: solid 1px black;
+    text-align: center;
+}.logedInContainer button{
+    border: 0;
+}.logedOutContainer button, .logedInContainer button {
+    background-color: rgb(0, 0, 140);
+    color: white;
+    border-color: rgb(0,0, 160);  
+}.logedOutContainer button:hover, .logedInContainer button:hover{
+    background-color: rgb(0, 0, 70);
+}
+
+.bodyContainer{
+    position: relative;
+}

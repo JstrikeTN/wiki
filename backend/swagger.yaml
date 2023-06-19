@@ -1,0 +1,1077 @@
+swagger: "2.0"
+info:
+  title: "AD Agency API"
+  description: "API for administrating advertysing agency projects"
+  version: "1.0.0"
+basePath: "/api"
+schemes:
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+paths:
+  /employees:
+    get:
+      description: "Get all employees"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Employee"
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    post:
+      summary: Create a new employee
+      description: Create a new employee with the provided details
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: employee
+          description: "Updated employee object"
+          schema:
+            $ref: "#/definitions/Employee"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Employee"
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                  example: false
+              error:
+                type: string
+
+  /employees/{id}:
+    get:
+      description: "Get employee by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the employee"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Employee"
+
+        404:
+          description: "Employee not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+    put:
+      description: "Update employee by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "ID of the employee"
+        - in: body
+          name: employee
+          description: "Updated employee object"
+          schema:
+            $ref: "#/definitions/Employee"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Employee"
+
+        404:
+          description: "Employee not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    delete:
+      description: "Delete an employee by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the employee"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Employee"
+
+        404:
+          description: "Employee not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string 
+
+  /clients:
+    get:
+      description: "Get all clients"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Clients"
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    post:
+      summary: Create a new client
+      description: Create a new employee with the provided details
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: client
+          description: "Updated client object"
+          schema:
+            $ref: "#/definitions/Clients"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Clients"
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                  example: false
+              error:
+                type: string
+
+  /clients/{id}:
+    get:
+      description: "Get a client by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the client"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Clients"
+
+        404:
+          description: "Client not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+    put:
+      description: "Update client by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "ID of the client"
+        - in: body
+          name: client
+          description: "Updated client object"
+          schema:
+            $ref: "#/definitions/Clients"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Clients"
+
+        404:
+          description: "Client not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    delete:
+      description: "Delete a client by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the client"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Clients"
+
+        404:
+          description: "Client not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string 
+
+  /invoices:
+    get:
+      description: "Get all invoices"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Invoices"
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    post:
+      summary: Create a new invoice
+      description: Create a new inoice with the provided details
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: invoice
+          description: "Updated invoice object"
+          schema:
+            $ref: "#/definitions/Invoices"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Invoices"
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                  example: false
+              error:
+                type: string
+
+  /invoices/{id}:
+    get:
+      description: "Get an invoice by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the invoice"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Invoice"
+
+        404:
+          description: "Invoice not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+    put:
+      description: "Update invoice by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "ID of the invoice"
+        - in: body
+          name: invoice
+          description: "Updated invoice object"
+          schema:
+            $ref: "#/definitions/Invoices"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Invoices"
+
+        404:
+          description: "Invoice not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    delete:
+      description: "Delete an invoice by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the invoice"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Invoices"
+
+        404:
+          description: "Invoice not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string 
+
+  /services:
+    get:
+      description: "Get all services"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Services"
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    post:
+      summary: Create a new service
+      description: Create a new service with the provided details
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: employee
+          description: "Updated service object"
+          schema:
+            $ref: "#/definitions/Services"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Service"
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                  example: false
+              error:
+                type: string
+
+  /services/{id}:
+    get:
+      description: "Get service by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the service"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Service"
+
+        404:
+          description: "Service not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+    put:
+      description: "Update service by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "ID of the service"
+        - in: body
+          name: service
+          description: "Updated service object"
+          schema:
+            $ref: "#/definitions/Services"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Services"
+
+        404:
+          description: "Service not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    delete:
+      description: "Delete a service by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the service"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Services"
+
+        404:
+          description: "Service not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string 
+
+  /projects:
+    get:
+      description: "Get all projects"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Projects"
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    post:
+      summary: Create a new project
+      description: Create a new project with the provided details
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: project
+          description: "Updated project object"
+          schema:
+            $ref: "#/definitions/Projects"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Projects"
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                  example: false
+              error:
+                type: string
+
+  /projects/{id}:
+    get:
+      description: "Get a project by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the project"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Projects"
+
+        404:
+          description: "Project not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+    put:
+      description: "Update a project by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "ID of the project"
+        - in: body
+          name: project
+          description: "Updated project object"
+          schema:
+            $ref: "#/definitions/Projects"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Projecs"
+
+        404:
+          description: "Projec not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+    delete:
+      description: "Delete an project by ID"
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: "ID of the project"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              data:
+                $ref: "#/definitions/Projects"
+
+        404:
+          description: "Project not found"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string
+
+        500:
+          description: "Internal server error"
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: false
+              error:
+                type: string 
+
+definitions:
+  Employee:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+        format: email
+      phone:
+        type: string
+      job_title:
+        type: string
+      department:
+        type: string
+
+  Clients:
+    type: object
+    properties: 
+      name:
+        type: string
+      email:
+        type: string
+        format: email
+      phone:
+        type: string
+      address:
+        type: string 
+
+  Services:
+    type: object
+    properties: 
+      name:
+        type: string
+      description:
+        type: string
+      price:
+        type: integer
+
+  Projects:
+    type: object
+    properties: 
+      name:
+        type: string
+      client_id:
+        type: integer
+      start_date:
+        type: date
+      end_date:
+        type: date
+      budget:
+        type: integer
+      status:
+        type: string
+
+  Invoices:
+    type: object
+    properties: 
+      invoice_number:
+        type: string
+      client_id:
+        type: integer
+      project_id:
+        type: integer
+      date:
+        type: date
+      amount:
+        type: integer 
